@@ -1,6 +1,12 @@
 .App {
-   width: 100%;
+   width: 100vw;
+   height: 100vh;
    text-align: center;
+   padding: 2rem;
+   background-image: url("./img/background.jpg");
+   background-size: cover;
+   background-repeat: no-repeat;
+   background-position: center center;
 }
 
 /* 
