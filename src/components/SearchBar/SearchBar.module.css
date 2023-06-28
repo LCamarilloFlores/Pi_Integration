@@ -1,0 +1,6 @@
+.searchBar{
+    position: relative;
+    width:100%;
+    height: 3rem;
+    z-index: 5;
+}

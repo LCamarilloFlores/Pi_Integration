@@ -25,9 +25,29 @@
    -webkit-box-shadow: -4px -1px 19px -1px rgb(194, 252, 5);
    -moz-box-shadow: -4px -1px 19px -1px rgb(194, 252, 5);
  }
- .giro{
+ .trasero{
    transition: 0.8s ease-out;
      transform: rotateY(-180deg);
+     animation: mover 0.8s ease-in-out, punto 0.8s ease-in-out;
+}
+.frontal{
+  transition: 0.8s ease-out;
+    transform: rotateY(-360deg);
+    animation: mover2 0.8s ease-in-out;
+}
+
+@keyframes mover {
+   0%{left:0;}
+   50%{left:-15rem;}
+   100%{left:0;}
+}
+@keyframes punto {
+   50%{transform-origin: center right}
+}
+@keyframes mover2 {
+   0%{left:0;}
+   50%{left:-5rem;}
+   100%{left:0;}
 }
     .datos{
        margin: 0;

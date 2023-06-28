@@ -5,20 +5,22 @@ import characters from "./data.js";
 // import particlesJS from "./particulas.js";
 
 function App() {
+  /* eslint-disable */
   particlesJS.load("particles-js", "./particles.json", function () {
     console.log("callback - particles.js config loaded");
   });
+  /* eslint-enable */
   const mueve = () => {
     const fondo = document.getElementsByClassName("fondo");
     fondo.className = "fondo2";
   };
   return (
     <div className="App">
-      <div id="particles-js">
-        <div className="fondo " onClick={() => mueve()}></div>
-        <SearchBar onSearch={(characterID) => window.alert(characterID)} />
-        <Cards characters={characters} />
-        {/* <Card
+      <div id="particles-js"></div>
+      <div className="fondo " onClick={() => mueve()}></div>
+      <SearchBar onSearch={(characterID) => window.alert(characterID)} />
+      <Cards characters={characters} />
+      {/* <Card
             id={Rick.id}
             name={Rick.name}
             status={Rick.status}
@@ -28,7 +30,6 @@ function App() {
             image={Rick.image}
             onClose={() => window.alert('Emulamos que se cierra la card')}
          /> */}
-      </div>
     </div>
   );
 }
