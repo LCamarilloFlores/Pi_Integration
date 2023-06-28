@@ -1,22 +1,32 @@
 .App {
+   position:relative;
    width: 100vw;
    height: 100vh;
    text-align: center;
    padding: 2rem;
-   background-image: url("./img/background.jpg");
+}
+
+.fondo{
+   position:fixed;
+   z-index: -1;
+   left:calc(-80%);
+   top:calc(-80%);
+   height: 400%;
+   width: 400%;
+   background-image: url("./img/background4.jpg");
    background-size: cover;
    background-repeat: no-repeat;
-   background-position: center center;
+   animation: mymove2 150s linear infinite, mostrar 4s;
+   transition:animation ease;
 }
 
-/* 
-
-
-
-h2{
-   font-size: 1rem;
+@keyframes mostrar {
+   0% {opacity: 0;}
+   100% {opacity: 1;}
+}
+@keyframes mymove2 {
+   0% {transform:rotateZ(0deg)}
+   100% {transform:rotateZ(360deg)}
 }
 
-img{
-   width:100%;
-} */
+/*Particulas*/
