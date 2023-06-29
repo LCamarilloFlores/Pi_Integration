@@ -17,8 +17,8 @@ function App() {
   return (
     <div className="App">
       <div id="particles-js"></div>
-      <div className="fondo " onClick={() => mueve()}></div>
       <div className="contenedor">
+        <div className="fondo " onClick={() => mueve()}></div>
         <SearchBar onSearch={(characterID) => window.alert(characterID)} />
         <Cards characters={characters} />
         {/* <Card

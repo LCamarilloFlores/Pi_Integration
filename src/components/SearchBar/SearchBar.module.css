@@ -4,8 +4,8 @@
     align-items: center;
     gap:1rem;
     position: relative;
-    height: 3rem;
-    width: 30rem;
+    height: auto;
+    width: auto;
     z-index: 5;
     padding:1rem;
     backdrop-filter: invert(100%) blur(3px);
@@ -19,4 +19,13 @@
     background-color: antiquewhite;
     color:rgba(0, 0, 0, 0.681);
     padding:0.2rem;
+    min-width: 10rem;
+    width:95%;
+}
+
+@media (max-width: 550px) {
+     .searchBar{
+        flex-direction: column;
+        width:95%;
+     }
 }
