@@ -9,11 +9,7 @@ function App() {
   particlesJS.load("particles-js", "./particles.json", function () {
     console.log("callback - particles.js config loaded");
   });
-<<<<<<< HEAD
-  particlesJS.unload();
-=======
   /* eslint-enable */
->>>>>>> d9e070f471fa6bc22102dba1cc7956b9cea4becb
   const mueve = () => {
     const fondo = document.getElementsByClassName("fondo");
     fondo.className = "fondo2";
