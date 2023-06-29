@@ -1,0 +1,16 @@
+.myButton{
+    background-color: rgb(89, 0, 255);
+    display:block;
+    font-weight: 700;
+    border-radius: 0.5rem;
+    text-transform: uppercase;
+    color:rgba(255, 255, 255, 0.87);
+    padding:0.4rem 1rem;
+    margin: 0;
+    border:0;
+    transition:0.2s ease-in-out;
+}
+
+.myButton:hover{
+    background-color: rgba(89, 0, 255, 0.698);
+}

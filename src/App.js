@@ -18,9 +18,10 @@ function App() {
     <div className="App">
       <div id="particles-js"></div>
       <div className="fondo " onClick={() => mueve()}></div>
-      <SearchBar onSearch={(characterID) => window.alert(characterID)} />
-      <Cards characters={characters} />
-      {/* <Card
+      <div className="contenedor">
+        <SearchBar onSearch={(characterID) => window.alert(characterID)} />
+        <Cards characters={characters} />
+        {/* <Card
             id={Rick.id}
             name={Rick.name}
             status={Rick.status}
@@ -30,6 +31,7 @@ function App() {
             image={Rick.image}
             onClose={() => window.alert('Emulamos que se cierra la card')}
          /> */}
+      </div>
     </div>
   );
 }

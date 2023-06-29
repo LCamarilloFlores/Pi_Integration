@@ -6,6 +6,24 @@
    padding: 2rem;
 }
 
+.contenedor{
+   display:flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   max-width:80rem;
+   width: 100%;
+   gap:3rem;
+   height: 100vh;
+   text-align: center;
+}
+
+@media (min-width: 768px) {
+     .contenedor{
+      height: 60vh;
+     }
+}
+
 #particles-js{
    position:absolute;
    z-index: 0;
@@ -22,10 +40,10 @@
    top:-100vh;
    height: 300vh;
    width: 300vw;
-   background-image: url("./img/background4.jpg");
+   background-image: url("./img/background4-min.jpg");
    background-size: cover;
    background-repeat: no-repeat;
-   animation: mymove 3s infinite,mymove2 300s linear infinite, mostrar 4s;
+   animation: mymove 3s infinite,mymove2 800s linear infinite, mostrar 4s;
 }
 
 @keyframes mostrar {

@@ -1,6 +1,22 @@
 .searchBar{
+    margin:0 auto;
+    display: flex;
+    align-items: center;
+    gap:1rem;
     position: relative;
-    width:100%;
     height: 3rem;
+    width: 30rem;
     z-index: 5;
+    padding:1rem;
+    backdrop-filter: invert(100%) blur(3px);
+    border-radius: 0.5rem;
+    border: 2px solid rgba(241, 233, 233, 0.681)
+}
+
+#inputSearch{
+    flex-grow:1;
+    border-radius: 0.3rem;
+    background-color: antiquewhite;
+    color:rgba(0, 0, 0, 0.681);
+    padding:0.2rem;
 }
