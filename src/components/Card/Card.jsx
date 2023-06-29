@@ -4,7 +4,13 @@ function Card({props}) {
    
    const girar = (id)=>{
       const carta = document.getElementById(id)
-      carta.classList.toggle(styles.giro)
+      if(!carta.classList.contains(styles.trasero)){
+      carta.classList.add(styles.trasero)
+      carta.classList.remove(styles.frontal)}
+      else{
+         carta.classList.add(styles.frontal)
+         carta.classList.remove(styles.trasero)
+      }
    }
 
    return (
