@@ -8,6 +8,7 @@ function App() {
   particlesJS.load("particles-js", "./particles.json", function () {
     console.log("callback - particles.js config loaded");
   });
+  particlesJS.unload();
   const mueve = () => {
     const fondo = document.getElementsByClassName("fondo");
     fondo.className = "fondo2";
