@@ -1,21 +1,27 @@
 import styles from "./SearchBar.module.css"
 import Boton from "../Boton/Boton"
+import { useState } from "react"
 
 export default function SearchBar({onSearch}) {
+   const [id,setId] = useState("")
+   const handleChange = (event) => setId(event.target.value)
    const handleSearch = ()=>{
-   const inputSearch = document.getElementById(styles.inputSearch)
-   inputSearch.value !== "" && onSearch(inputSearch.value)
-   inputSearch.value=""
-   // $.ajax("GET","https://rickandmortyapi.com/api/character/2")
+      id !== "" && onSearch(id)
+      limpiaCampo(styles.inputSearch)
    }
-   const agregaPersonaje = (event)=>{
+   const enviar = (event)=>{
       if (event.key === 'Enter') {
          handleSearch();
      }
    }
+
+   const limpiaCampo = (id) =>{
+      document.getElementById(id).value = ""
+   }
+   
    return (
       <div className={styles.searchBar}>
-         <input id={styles.inputSearch} type='search' onKeyUp={agregaPersonaje} />
+         <input id={styles.inputSearch} type='search' onChange={handleChange}  onKeyUp={enviar}/>
          <Boton value="Agregar" callback={handleSearch}/>
       </div>
    );

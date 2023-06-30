@@ -7,18 +7,19 @@
 
 .contenedor{
    position:absolute;
+   left:0;
+   top: 0;
    padding:2rem;
    display:flex;
    flex-direction: column;
    justify-content: center;
    align-items: center;
-   max-width:80rem;
+   max-width:70rem;
    width: 100%;
    gap:3rem;
    height: auto;
    text-align: center;
 }
-
 
 #particles-js{
    position:absolute;
@@ -40,7 +41,20 @@
    background-image: url("./img/background4-min.jpg");
    background-size: cover;
    background-repeat: no-repeat;
-   animation: mymove 3s infinite,mymove2 800s linear infinite, mostrar 4s;
+}
+
+.animado{
+   overflow:hidden;
+   position:fixed;
+   z-index: -1;
+   left:-100vw;
+   top:-100vh;
+   height: 300vh;
+   width: 300vw;
+   background-image: url("./img/background4-min.jpg");
+   background-size: cover;
+   background-repeat: no-repeat;
+   animation: mymove 3s infinite,mymove2 800s linear infinite;
 }
 
 @keyframes mostrar {
@@ -57,4 +71,28 @@
    100% {transform:rotateX(0deg)}
 }
 
+.noVisible{
+   display:none;
+}
+
+.topBar{
+   display:grid;
+   gap:1rem;
+   grid-template-columns: 1fr 3fr 1fr;
+
+}
+
+.botonOnOff{
+   margin: 0 auto;
+}
+
+@media (max-width: 900px) {
+   .topBar{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+   }
+     
+}
 /*Particulas*/
