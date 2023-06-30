@@ -4,7 +4,9 @@ import { useState } from "react"
 
 export default function SearchBar({onSearch}) {
    const [id,setId] = useState("")
+   
    const handleChange = (event) => setId(event.target.value)
+
    const handleSearch = ()=>{
       id !== "" && onSearch(id)
       limpiaCampo(styles.inputSearch)
@@ -18,7 +20,7 @@ export default function SearchBar({onSearch}) {
    const limpiaCampo = (id) =>{
       document.getElementById(id).value = ""
    }
-   
+
    return (
       <div className={styles.searchBar}>
          <input id={styles.inputSearch} type='search' onChange={handleChange}  onKeyUp={enviar}/>
