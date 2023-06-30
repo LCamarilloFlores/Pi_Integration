@@ -6,15 +6,15 @@
 }
 
 .contenedor{
+   margin: 0 auto;
    position:absolute;
-   left:0;
    top: 0;
+   left:0;
    padding:2rem;
    display:flex;
    flex-direction: column;
    justify-content: center;
    align-items: center;
-   max-width:70rem;
    width: 100%;
    gap:3rem;
    height: auto;
@@ -54,21 +54,12 @@
    background-image: url("./img/background4-min.jpg");
    background-size: cover;
    background-repeat: no-repeat;
-   animation: mymove 3s infinite,mymove2 800s linear infinite;
+   animation: mymove2 700s linear infinite;
 }
 
-@keyframes mostrar {
-   0% {opacity: 0;}
-   100% {opacity: 1;}
-}
 @keyframes mymove2 {
    0% {transform:rotateZ(0deg)}
    100% {transform:rotateZ(360deg)}
-}
-@keyframes mymove {
-   0% {transform:rotateX(0deg)}
-   50% {transform:rotateX(90deg)}
-   100% {transform:rotateX(0deg)}
 }
 
 .noVisible{
@@ -94,5 +85,18 @@
       gap: 1rem;
    }
      
+}
+
+@media (max-width: 500px){
+   .fondo{
+      top:-200vh;
+      height: 10vh;
+   }
+   
+@keyframes mymove2 {
+   25% {transform:translate(-10%)}
+   50%{transform:translate(0)}
+   75% {transform:translate(10%)}
+}
 }
 /*Particulas*/
