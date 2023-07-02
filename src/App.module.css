@@ -34,10 +34,10 @@
    overflow:hidden;
    position:fixed;
    z-index: -1;
-   left:-100vw;
-   top:-100vh;
-   height: 300vh;
-   width: 300vw;
+   left:0;
+   top:0;
+   height: 100vh;
+   width: 100vw;
    background-image: url("./img/background4-min.jpg");
    background-size: cover;
    background-repeat: no-repeat;
@@ -47,19 +47,23 @@
    overflow:hidden;
    position:fixed;
    z-index: -1;
-   left:-100vw;
+   left:0;
+   top:0;
+   height: 100vh;
+   width: 100vw;
+   /* left:-100vw;
    top:-100vh;
    height: 300vh;
-   width: 300vw;
+   width: 300vw; */
    background-image: url("./img/background4-min.jpg");
    background-size: cover;
    background-repeat: no-repeat;
-   animation: mymove2 700s linear infinite;
+   animation: mymove2 400s linear infinite;
 }
 
 @keyframes mymove2 {
-   0% {transform:rotateZ(0deg)}
-   100% {transform:rotateZ(360deg)}
+   0% {transform:scale(1)}
+   50% {transform:scale(2)}
 }
 
 .noVisible{
@@ -89,8 +93,13 @@
 
 @media (max-width: 500px){
    .fondo{
-      top:-200vh;
-      height: 10vh;
+      top:0;
+      height: 100vh;
+   }
+
+   .animado{
+      top:0;
+      height: 100vh;
    }
    
 @keyframes mymove2 {
