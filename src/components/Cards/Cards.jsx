@@ -9,7 +9,8 @@ import Card from '../Card/Card';
             return( 
             <Card 
             key={personaje.id} 
-            props={personaje} />
+            props={personaje} 
+            onClose={props.onClose} />
             )
          })
       }

@@ -1,6 +1,6 @@
 import styles from "./Card.module.css"
 
-function Card({props}) {
+function Card({props,onClose}) {
    
    const girar = (id)=>{
       const carta = document.getElementById(id)
@@ -16,7 +16,7 @@ function Card({props}) {
    return (
       <div id={props.id} className={styles.card} onClick={()=>girar(props.id)} >
          
-         <button className={styles.cerrarBoton} onClick={props.onClose}>x</button>
+         <button className={styles.cerrarBoton} onClick={()=>onClose(props.id)}>x</button>
          <h2 className={styles.nombre}>{props.name}</h2>
          <div className={styles.datos}>
             <ul>

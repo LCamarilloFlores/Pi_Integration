@@ -9,7 +9,7 @@ export default function SearchBar({onSearch}) {
 
    const handleSearch = ()=>{
       id !== "" && onSearch(id)
-      limpiaCampo(styles.inputSearch)
+      setId("")
    }
    const enviar = (event)=>{
       if (event.key === 'Enter') {
@@ -17,13 +17,10 @@ export default function SearchBar({onSearch}) {
      }
    }
 
-   const limpiaCampo = (id) =>{
-      document.getElementById(id).value = ""
-   }
 
    return (
       <div className={styles.searchBar}>
-         <input id={styles.inputSearch} type='search' onChange={handleChange}  onKeyUp={enviar}/>
+         <input id={styles.inputSearch} value={id} type='search' onChange={handleChange}  onKeyUp={enviar}/>
          <Boton value="Agregar" callback={handleSearch}/>
       </div>
    );
