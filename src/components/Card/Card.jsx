@@ -2,7 +2,12 @@ import styles from "./Card.module.css"
 
 function Card({props,onClose}) {
    
-   const girar = (id)=>{
+   const girar = (id,event)=>{
+      if(event.target.id===`boton-${id}`)
+      {
+         cerrar(id)
+         return
+      }
       const carta = document.getElementById(id)
       if(!carta.classList.contains(styles.trasero)){
       carta.classList.add(styles.trasero)
@@ -13,10 +18,20 @@ function Card({props,onClose}) {
       }
    }
 
+   const cerrar = (id) =>{
+      const carta = document.getElementById(id)
+      carta.classList.remove(styles.frontal)
+      carta.classList.add(styles.cerrar)
+      console.log(carta.classList)
+      setTimeout(() => {
+         onClose(props.id)
+      }, 300);
+   }
+
    return (
-      <div id={props.id} className={styles.card} onClick={()=>girar(props.id)} >
+      <div id={props.id} className={styles.card} onClick={(event)=>girar(props.id,event)} >
          
-         <button className={styles.cerrarBoton} onClick={()=>onClose(props.id)}>x</button>
+         <button id={`boton-${props.id}`} className={styles.cerrarBoton}>x</button>
          <h2 className={styles.nombre}>{props.name}</h2>
          <div className={styles.datos}>
             <ul>
@@ -28,7 +43,7 @@ function Card({props,onClose}) {
             </ul>
          </div>
             <div className={styles.backImage}></div>
-         <img id={props.id} className={styles.imagen} src={props.image} alt={props.name + " - Imagen"} />
+         <img className={styles.imagen} src={props.image} alt={props.name + " - Imagen"} />
       </div>
    );
 }

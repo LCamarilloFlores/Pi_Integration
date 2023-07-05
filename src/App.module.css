@@ -71,35 +71,28 @@
 }
 
 .topBar{
-   display:grid;
-   gap:1rem;
-   grid-template-columns: 1fr 3fr 1fr;
-
-}
-
-.botonOnOff{
    margin: 0 auto;
+   max-width:80rem;
+   width:70%;
+   min-width: 40rem;
+
 }
 
-@media (max-width: 900px) {
-   .topBar{
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 1rem;
-   }
-     
-}
+
 
 @media (max-width: 500px){
    .fondo{
       top:0;
-      height: 100vh;
+      left:0;
+      height: 100%;
    }
 
    .animado{
       top:0;
-      height: 100vh;
+      left:-100%;
+      height: 100%;
+      width:500vw;
+      animation: mymove2 100s linear infinite;
    }
    
 @keyframes mymove2 {

@@ -2,8 +2,8 @@ import styles from "./App.module.css";
 import Cards from "./components/Cards/Cards.jsx";
 import Nav from "./components/Nav/Nav.jsx";
 import axios from "axios";
-import BotonOnOff from "./components/BotonOnOff/BotonOnOff.jsx";
 import { useState } from "react";
+import { Route, Routes } from "react-router-dom";
 // import particlesJS from "./particulas.js";
 
 /* eslint-disable */
@@ -41,18 +41,12 @@ function App() {
     <div className={styles.App}>
       <div id="particles-js" className={!estado ? styles.noVisible : ""}></div>
       <div className={styles.contenedor}>
-        <div className={!estado ? styles.fondo : styles.animado}></div>
-        <div className={styles.topBar}>
-          <BotonOnOff
-            estado={estado}
-            nombre="Animación"
-            onClick={animar}
-            className={styles.BotonOnOff}
-          />
-          <Nav onSearch={onSearch} />
-        </div>
-        <Cards characters={characters} onClose={onClose} />
-        {/* <Card
+        <div className={!estado ? styles.fondo : styles.animado}>
+          <div className={styles.topBar}>
+            <Nav onSearch={onSearch} estado={estado} animar={animar} />
+          </div>
+          <Cards characters={characters} onClose={onClose} />
+          {/* <Card
             id={Rick.id}
             name={Rick.name}
             status={Rick.status}
@@ -62,6 +56,7 @@ function App() {
             image={Rick.image}
             onClose={() => window.alert('Emulamos que se cierra la card')}
          /> */}
+        </div>
       </div>
     </div>
   );
