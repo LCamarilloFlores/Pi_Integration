@@ -21,54 +21,6 @@
    text-align: center;
 }
 
-#particles-js{
-   position:absolute;
-   z-index: 0;
-   top:0;
-   left:0;
-   width:100%;
-   height:100%;
-}
-
-.fondo{
-   overflow:hidden;
-   position:fixed;
-   z-index: -1;
-   left:0;
-   top:0;
-   height: 100vh;
-   width: 100vw;
-   background-image: url("./img/background4-min.jpg");
-   background-size: cover;
-   background-repeat: no-repeat;
-}
-
-.animado{
-   overflow:hidden;
-   position:fixed;
-   z-index: -1;
-   left:0;
-   top:0;
-   height: 100vh;
-   width: 100vw;
-   /* left:-100vw;
-   top:-100vh;
-   height: 300vh;
-   width: 300vw; */
-   background-image: url("./img/background4-min.jpg");
-   background-size: cover;
-   background-repeat: no-repeat;
-   animation: mymove2 400s linear infinite;
-}
-
-@keyframes mymove2 {
-   0% {transform:scale(1)}
-   50% {transform:scale(2)}
-}
-
-.noVisible{
-   display:none;
-}
 
 .topBar{
    margin: 0 auto;
@@ -80,25 +32,4 @@
 
 
 
-@media (max-width: 500px){
-   .fondo{
-      top:0;
-      left:0;
-      height: 100%;
-   }
-
-   .animado{
-      top:0;
-      left:-100%;
-      height: 100%;
-      width:500vw;
-      animation: mymove2 100s linear infinite;
-   }
-   
-@keyframes mymove2 {
-   25% {transform:translate(-10%)}
-   50%{transform:translate(0)}
-   75% {transform:translate(10%)}
-}
-}
 /*Particulas*/

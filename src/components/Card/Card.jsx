@@ -1,5 +1,5 @@
 import styles from "./Card.module.css"
-
+import {Link} from "react-router-dom"
 function Card({props,onClose}) {
    
    const girar = (id,event)=>{
@@ -32,7 +32,9 @@ function Card({props,onClose}) {
       <div id={props.id} className={styles.card} onClick={(event)=>girar(props.id,event)} >
          
          <button id={`boton-${props.id}`} className={styles.cerrarBoton}>x</button>
+         <Link to={`/detail/${props.id}`}>
          <h2 className={styles.nombre}>{props.name}</h2>
+         </Link>
          <div className={styles.datos}>
             <ul>
             <li>{props.name}</li>

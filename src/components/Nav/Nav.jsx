@@ -19,6 +19,9 @@ function Nav({onSearch,estado,animar}){
             <Link to="/home">
                 <button>Home</button>
             </Link>
+            <Link to="/">
+                <button>Cards</button>
+            </Link>
         </div>
     )
 }

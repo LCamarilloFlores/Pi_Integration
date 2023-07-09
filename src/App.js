@@ -4,13 +4,11 @@ import Nav from "./components/Nav/Nav.jsx";
 import axios from "axios";
 import { useState } from "react";
 import { Route, Routes } from "react-router-dom";
+import Particles from "./components/Particles/Particles";
+import Fondo from "./components/Fondo/Fondo";
+import About from "./components/About/About";
+import Detail from "./components/Detail/Detail";
 // import particlesJS from "./particulas.js";
-
-/* eslint-disable */
-particlesJS.load("particles-js", "./particles.json", function () {
-  console.log("callback - particles.js config loaded");
-});
-/* eslint-enable */
 
 function App() {
   const [estado, setEstado] = useState(true);
@@ -39,24 +37,20 @@ function App() {
   };
   return (
     <div className={styles.App}>
-      <div id="particles-js" className={!estado ? styles.noVisible : ""}></div>
+      <Particles estado={estado} />
+      <Fondo estado={estado} />
       <div className={styles.contenedor}>
-        <div className={!estado ? styles.fondo : styles.animado}>
-          <div className={styles.topBar}>
-            <Nav onSearch={onSearch} estado={estado} animar={animar} />
-          </div>
-          <Cards characters={characters} onClose={onClose} />
-          {/* <Card
-            id={Rick.id}
-            name={Rick.name}
-            status={Rick.status}
-            species={Rick.species}
-            gender={Rick.gender}
-            origin={Rick.origin.name}
-            image={Rick.image}
-            onClose={() => window.alert('Emulamos que se cierra la card')}
-         /> */}
+        <div className={styles.topBar}>
+          <Nav onSearch={onSearch} estado={estado} animar={animar} />
         </div>
+        <Routes>
+          <Route
+            path="/"
+            element={<Cards characters={characters} onClose={onClose} />}
+          />
+          <Route path="/about" element={<About />} />
+          <Route path="/detail/:id" element={<Detail />} />
+        </Routes>
       </div>
     </div>
   );
