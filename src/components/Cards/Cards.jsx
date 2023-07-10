@@ -1,21 +1,21 @@
-import styles from './Cards.module.css'
+import styles from './Cards.module.css';
 import Card from '../Card/Card';
 
- function Cards(props) {
-   return (
-   <div className={styles.cards}>
-      {
-         props.characters.map((personaje)=>{
-            return( 
-            <Card 
-            key={personaje.id} 
-            props={personaje} 
-            onClose={props.onClose} />
-            )
-         })
-      }
-   </div>
-   );
+function Cards({ characters, onClose }) {
+  return (
+    <div className={styles.cards}>
+      {characters.map((personaje) => {
+        return (
+          <Card
+            className={styles.card}
+            key={personaje.id}
+            props={personaje}
+            onClose={onClose}
+          />
+        );
+      })}
+    </div>
+  );
 }
 
 export default Cards;

@@ -1,14 +1,14 @@
-.container{
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    width: 100%;
+.container {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
 }
 
-.titulo{
-    font-size:2rem;
-    text-align: center;
-    font-weight: 800;
+.titulo {
+  font-size: 2rem;
+  text-align: center;
+  font-weight: 800;
 }

@@ -1,13 +1,13 @@
-import styles from "./App.module.css";
-import Cards from "./components/Cards/Cards.jsx";
-import Nav from "./components/Nav/Nav.jsx";
-import axios from "axios";
-import { useState } from "react";
-import { Route, Routes } from "react-router-dom";
-import Particles from "./components/Particles/Particles";
-import Fondo from "./components/Fondo/Fondo";
-import About from "./components/About/About";
-import Detail from "./components/Detail/Detail";
+import styles from './App.module.css';
+import Cards from './components/Cards/Cards.jsx';
+import Nav from './components/Nav/Nav.jsx';
+import axios from 'axios';
+import { useState } from 'react';
+import { Route, Routes } from 'react-router-dom';
+import Particles from './components/Particles/Particles';
+import Fondo from './components/Fondo/Fondo';
+import About from './components/About/About';
+import Detail from './components/Detail/Detail';
 // import particlesJS from "./particulas.js";
 
 function App() {
