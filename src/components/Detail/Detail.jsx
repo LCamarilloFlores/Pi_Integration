@@ -33,7 +33,8 @@ const Imagen = styled.div`
   -webkit-box-shadow: 0px 0px 30px #a3ff0f;
   box-shadow: 0px 0px 30px #a3ff0f;
   user-select: none;
-  animation: ${brillar} 4s ease-in-out infinite,
+  animation:
+    ${brillar} 4s ease-in-out infinite,
     ${breatheAnimation} 4s ease-in-out infinite;
   @media (max-width: 900px) {
     height: 15rem;

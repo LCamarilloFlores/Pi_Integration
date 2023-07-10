@@ -57,10 +57,10 @@ Comenzaremos creando un componete llamador **Deatil** el cual solo mostrara una 
 
 Luego, dirígete al archivo **`App.js`**. Ahora crearemos las rutas de los componentes. Cada componente debe renderizarse en las siguientes rutas:
 
--  **Nav** debe que aparecer en todas las rutas.
--  **Cards** debe aparecer solo en la ruta **`/home`**.
--  **About** debe aparecer solo en la ruta **`/about`**.
--  **Detail** debe aparecer solo en la ruta **`/detail/:id`**.
+- **Nav** debe que aparecer en todas las rutas.
+- **Cards** debe aparecer solo en la ruta **`/home`**.
+- **About** debe aparecer solo en la ruta **`/about`**.
+- **Detail** debe aparecer solo en la ruta **`/detail/:id`**.
 
 > [**NOTA**]: ten en cuenta que la ruta del componente **Detail** recibe un parámetro **`id`**.
 
@@ -109,14 +109,14 @@ En este momento, cuando hacemos click sobre el nombre de un personaje nos debe r
 
 ```js
 useEffect(() => {
-   axios(`https://rickandmortyapi.com/api/character/${id}`).then(({ data }) => {
-      if (data.name) {
-         setCharacter(data);
-      } else {
-         window.alert('No hay personajes con ese ID');
-      }
-   });
-   return setCharacter({});
+  axios(`https://rickandmortyapi.com/api/character/${id}`).then(({ data }) => {
+    if (data.name) {
+      setCharacter(data);
+    } else {
+      window.alert('No hay personajes con ese ID');
+    }
+  });
+  return setCharacter({});
 }, [id]);
 ```
 
@@ -132,12 +132,12 @@ Ahora en el estado local **character** ya tenemos disponible toda la informació
 
 1. Renderiza **condicionalmente** cada una de estas propiedades.
 
--  **name**
--  **status**
--  **species**
--  **gender**
--  **origin** (ten en cuenta que el nombre se guarda dentro de otra propiedad "_name_")
--  **image**
+- **name**
+- **status**
+- **species**
+- **gender**
+- **origin** (ten en cuenta que el nombre se guarda dentro de otra propiedad "_name_")
+- **image**
 
 Debería quedarte algo como esto:
 
