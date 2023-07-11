@@ -26,7 +26,7 @@
   background-image: url('./background4-min.jpg');
   background-size: cover;
   background-repeat: no-repeat;
-  animation: mymove2 400s linear infinite;
+  animation: mymove2 200s linear infinite;
 }
 
 @keyframes mymove2 {
