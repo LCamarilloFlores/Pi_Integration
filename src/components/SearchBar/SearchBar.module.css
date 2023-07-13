@@ -1,17 +1,22 @@
+.contenedor {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  z-index: 5;
+  padding: 1rem;
+  backdrop-filter: invert(70%);
+  border-radius: 0.5rem;
+  border: 2px solid rgba(241, 233, 233, 0.681);
+}
+
 .searchBar {
-  margin: 0 auto;
+  margin: 1rem auto;
   display: flex;
   align-items: center;
   gap: 1rem;
   position: relative;
   height: auto;
   width: 100%;
-  z-index: 5;
-  padding: 1rem;
-  backdrop-filter: invert(70%);
-  border-radius: 0.5rem;
-  border: 2px solid rgba(241, 233, 233, 0.681);
-  margin-bottom: 1rem;
 }
 
 #inputSearch {
@@ -29,4 +34,28 @@
     flex-direction: column;
     padding: 0.5rem;
   }
+}
+
+.links {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.myButton {
+  background-color: rgb(89, 0, 255);
+  display: block;
+  font-weight: 700;
+  border-radius: 0.5rem;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.87);
+  padding: 0.4rem 1rem;
+  margin: 0;
+  border: 0;
+  transition: 0.2s ease-in-out;
+}
+
+.myButton:hover {
+  background-color: rgba(89, 0, 255, 0.698);
 }

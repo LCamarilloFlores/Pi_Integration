@@ -23,7 +23,7 @@ function Card({ props, onClose }) {
     console.log(carta.classList);
     setTimeout(() => {
       onClose(props.id);
-    }, 300);
+    }, 1000);
   };
 
   return (
