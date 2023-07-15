@@ -4,7 +4,7 @@ import BotonOnOff from '../BotonOnOff/BotonOnOff.jsx';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-export default function SearchBar({ onSearch, estado, animar }) {
+export default function SearchBar({ onSearch, estado, animar, logout }) {
   const [id, setId] = useState('');
 
   const handleChange = (event) => setId(event.target.value);
@@ -39,9 +39,7 @@ export default function SearchBar({ onSearch, estado, animar }) {
         <Link to="/home">
           <button className={styles.myButton}>Home</button>
         </Link>
-        <Link to="/">
-          <button className={styles.myButton}>Cards</button>
-        </Link>
+        <Boton value="Cerrar Sesión" callback={logout} />
       </div>
     </div>
   );

@@ -53,6 +53,7 @@ ul li span {
 
 @media (max-width: 900px) {
   .contenedor {
+    height: auto;
     flex-direction: column;
   }
 

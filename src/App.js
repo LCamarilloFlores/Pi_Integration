@@ -1,13 +1,15 @@
+/* eslint-disable multiline-ternary */
 import styles from './App.module.css';
 import Cards from './components/Cards/Cards.jsx';
 import Nav from './components/Nav/Nav.jsx';
 import axios from 'axios';
-import { useState } from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 import Particles from './components/Particles/Particles';
 import Fondo from './components/Fondo/Fondo';
 import About from './components/About/About';
 import Detail from './components/Detail/Detail';
+import Form from './components/Form/Form';
 // import particlesJS from "./particulas.js";
 
 function App() {
@@ -17,6 +19,34 @@ function App() {
   //   const fondo = document.getElementsByClassName("fondo");
   //   fondo.className = "fondo2";
   // };
+  const navigate = useNavigate();
+
+  const [access, setAccess] = useState();
+
+  const loginData = {
+    email: 'JuanitoBanana@correo.com',
+    password: '1nuncasabe',
+  };
+
+  function login(userData) {
+    if (
+      userData.password === loginData.password &&
+      userData.email.toLowerCase() === loginData.email.toLowerCase()
+    ) {
+      setAccess(true);
+      navigate('/home');
+    }
+  }
+
+  function logout() {
+    setAccess(false);
+    navigate('/');
+  }
+
+  useEffect(() => {
+    !access && navigate('/');
+  }, [access]);
+
   const onSearch = (id) => {
     axios(`https://rickandmortyapi.com/api/character/${id}`)
       .then(({ data }) => {
@@ -40,12 +70,23 @@ function App() {
       <Particles estado={estado} />
       <Fondo estado={estado} />
       <div className={styles.contenedor}>
-        <div className={styles.topBar}>
-          <Nav onSearch={onSearch} estado={estado} animar={animar} />
-        </div>
+        {useLocation().pathname !== '/' ? (
+          <div className={styles.topBar}>
+            <Nav
+              onSearch={onSearch}
+              estado={estado}
+              animar={animar}
+              logout={logout}
+            />
+          </div>
+        ) : (
+          ''
+        )}
+
         <Routes>
+          <Route path="/" element={<Form login={login} />} />
           <Route
-            path="/"
+            path="/home"
             element={<Cards characters={characters} onClose={onClose} />}
           />
           <Route path="/about" element={<About />} />
