@@ -20,8 +20,8 @@ const brillar = keyframes`
   }
 `;
 const Imagen = styled.div`
-  height: 25rem;
-  width: 18rem;
+  height: 20rem;
+  width: 15rem;
   margin: 0 2rem;
   border-radius: 1.5rem;
   background-image: url(${(props) => props.imagen});
@@ -33,8 +33,7 @@ const Imagen = styled.div`
   -webkit-box-shadow: 0px 0px 30px #a3ff0f;
   box-shadow: 0px 0px 30px #a3ff0f;
   user-select: none;
-  animation:
-    ${brillar} 4s ease-in-out infinite,
+  animation: ${brillar} 4s ease-in-out infinite,
     ${breatheAnimation} 4s ease-in-out infinite;
   @media (max-width: 900px) {
     height: 15rem;

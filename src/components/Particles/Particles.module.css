@@ -8,5 +8,5 @@
 }
 
 .noVisible {
-  display: none;
+  visibility: hidden;
 }

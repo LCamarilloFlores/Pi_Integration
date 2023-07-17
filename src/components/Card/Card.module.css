@@ -10,15 +10,16 @@
   width: 16%;
   max-width: 15rem;
   height: 18rem;
-  box-shadow: -4px -1px 19px -1px rgba(252, 168, 5, 1);
-  -webkit-box-shadow: -4px -1px 19px -1px rgba(252, 168, 5, 1);
-  -moz-box-shadow: -4px -1px 19px -1px rgba(252, 168, 5, 1);
+  box-shadow: -4px -1px 5px -1px rgba(252, 168, 5, 1);
+  -webkit-box-shadow: -4px -1px 5px -1px rgba(252, 168, 5, 1);
+  -moz-box-shadow: -4px -1px 5px -1px rgba(252, 168, 5, 1);
   perspective: 2000px;
   will-change: transform;
   cursor: pointer;
   transition: all 0.8s ease-out;
   border: 2px solid rgba(252, 168, 5, 1);
   border-radius: 0.8rem;
+  scroll-snap-align: center;
 }
 .card:hover {
   scale: 1.02;
@@ -160,7 +161,7 @@
   text-transform: uppercase;
   bottom: 1rem;
   padding: 0.5rem 1rem;
-  background-color: rgba(179, 179, 218, 0.5);
+  background-color: rgba(179, 179, 218, 0.9);
   color: black;
   z-index: 2;
   transition: 0.2s ease-in;

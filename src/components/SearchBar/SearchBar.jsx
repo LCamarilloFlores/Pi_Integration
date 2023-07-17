@@ -24,6 +24,7 @@ export default function SearchBar({ onSearch, estado, animar, logout }) {
       <div className={styles.searchBar}>
         <BotonOnOff estado={estado} nombre="Animación" onClick={animar} />
         <input
+          placeholder="Ingresa el ID del personaje"
           id={styles.inputSearch}
           value={id}
           type="search"
@@ -33,13 +34,17 @@ export default function SearchBar({ onSearch, estado, animar, logout }) {
         <Boton value="Agregar" callback={handleSearch} />
       </div>
       <div className={styles.links}>
-        <Link to="/about">
-          <button className={styles.myButton}>About</button>
+        <Link to="/about" style={{ textDecoration: 'none' }}>
+          <button className={`${styles.item} ${styles.primero}`}>About</button>
         </Link>
-        <Link to="/home">
-          <button className={styles.myButton}>Home</button>
+        <Link to="/home" style={{ textDecoration: 'none' }}>
+          <button className={styles.item}>Home</button>
         </Link>
-        <Boton value="Cerrar Sesión" callback={logout} />
+        <Boton
+          estilo={`${styles.item} ${styles.ultimo}`}
+          value="Cerrar Sesión"
+          callback={logout}
+        />
       </div>
     </div>
   );

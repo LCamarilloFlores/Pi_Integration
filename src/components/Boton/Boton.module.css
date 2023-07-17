@@ -1,4 +1,6 @@
 .myButton {
+  cursor: pointer;
+  text-decoration: none;
   background-color: rgb(89, 0, 255);
   display: block;
   font-weight: 700;

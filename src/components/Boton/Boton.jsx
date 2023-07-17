@@ -1,17 +1,15 @@
 import styles from './Boton.module.css';
 
-function Boton({ value, callback }) {
+function Boton({ value, callback, estilo }) {
   return (
-    <div>
-      <button
-        className={styles.myButton}
-        onClick={() => {
-          callback();
-        }}
-      >
-        {value}
-      </button>
-    </div>
+    <button
+      className={estilo ?? styles.myButton}
+      onClick={() => {
+        callback();
+      }}
+    >
+      {value}
+    </button>
   );
 }
 

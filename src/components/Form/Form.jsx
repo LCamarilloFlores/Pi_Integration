@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import styles from './Form.module.css';
 import validate from './validation';
 
 export default function Form({ login }) {
@@ -22,25 +23,30 @@ export default function Form({ login }) {
   };
 
   return (
-    <div>
+    <div className={styles.contenedorForm}>
       <form onSubmit={handleSubmit}>
-        <label htmlFor="email">Email: </label>
-        <input
-          type="mail"
-          name="email"
-          value={userData.email}
-          onChange={handleChange}
-        />
-
-        <label htmlFor="email">Password: </label>
-        <input
-          type="password"
-          name="password"
-          value={userData.password}
-          onChange={handleChange}
-        />
-
-        <button>Submit</button>
+        <h1>Inicio de Sesión</h1>
+        <div className={styles.campo}>
+          <label htmlFor="email">Email: </label>
+          <input
+            id="email"
+            type="mail"
+            name="email"
+            value={userData.email}
+            onChange={handleChange}
+          />
+        </div>
+        <div className={styles.campo}>
+          <label htmlFor="password">Password: </label>
+          <input
+            id="password"
+            type="password"
+            name="password"
+            value={userData.password}
+            onChange={handleChange}
+          />
+        </div>
+        <button className={styles.myButton}>Iniciar Sesión</button>
       </form>
     </div>
   );
