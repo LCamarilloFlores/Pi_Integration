@@ -1,47 +1,29 @@
 import styles from './Card.module.css';
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { removeFav, addFav } from '../../redux/actions';
 import FavButton from '../FavButton/FavButton';
 
 function Card({ props, onClose }) {
-  const dispatch = useDispatch();
-
-  const [isFav, setIsFav] = useState(false);
-
-  const handleFavourite = () => {
-    if (isFav) {
-      dispatch(removeFav(props.id));
-    } else {
-      dispatch(addFav(props));
-    }
-    setIsFav(!isFav);
-  };
-
   const girar = (id, event) => {
     if (event.target.id === `boton-${id}`) {
       cerrar(id);
       return;
     } else if (event.target.id === `fav-${id}`) {
-      handleFavourite();
       return;
     }
     const carta = document.getElementById(id);
     if (!carta.classList.contains(styles.trasero)) {
       carta.classList.add(styles.trasero);
-      carta.classList.remove(styles.frontal);
+      // carta.classList.remove(styles.frontal);
     } else {
-      carta.classList.add(styles.frontal);
+      // carta.classList.add(styles.frontal);
       carta.classList.remove(styles.trasero);
     }
   };
 
   const cerrar = (id) => {
     const carta = document.getElementById(id);
-    carta.classList.remove(styles.frontal);
+    // carta.classList.remove(styles.frontal);
     carta.classList.add(styles.cerrar);
-    console.log(carta.classList);
     setTimeout(() => {
       onClose(props.id);
     }, 1000);
@@ -53,7 +35,7 @@ function Card({ props, onClose }) {
       className={styles.card}
       onClick={(event) => girar(props.id, event)}
     >
-      <FavButton id={`fav-${props.id}`} estado={isFav} />
+      <FavButton id={`fav-${props.id}`} character={props} />
       <button id={`boton-${props.id}`} className={styles.cerrarBoton}>
         x
       </button>
