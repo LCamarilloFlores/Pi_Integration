@@ -1,0 +1,29 @@
+.heart,
+.heartSelected {
+  backface-visibility: hidden;
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  z-index: 2;
+  background-image: url('./cora1.svg');
+  background-size: cover;
+  background-position: center center;
+  width: 2rem;
+  height: 2rem;
+  transition: all 0.2s ease-in-out;
+}
+
+.heartSelected {
+  background-position: 20% 20%;
+  width: 2.3rem;
+  height: 2.3rem;
+  background-image: url('./cora2.svg');
+}
+
+.heart:hover {
+  background-image: url('./cora1hover.svg');
+}
+
+.heartSelected:hover {
+  background-image: url('./cora2hover.svg');
+}

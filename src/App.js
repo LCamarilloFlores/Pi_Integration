@@ -35,7 +35,7 @@ function App() {
     ) {
       setAccess(true);
       navigate('/home');
-    }
+    } else alert('Datos de inicio de sesión incorrectos.');
   }
 
   function logout() {

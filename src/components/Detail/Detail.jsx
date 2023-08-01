@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import styles from './Detail.module.css';
 import styled, { keyframes } from 'styled-components';
 
@@ -43,13 +44,13 @@ const Imagen = styled.div`
 
 function Detail() {
   const { id } = useParams();
+  const myFavourites = useSelector((state) => state.myFavourites);
   const [character, setCharacter] = useState({});
 
   useEffect(() => {
+    console.log(myFavourites);
     axios(`https://rickandmortyapi.com/api/character/${id}`).then(
       ({ data }) => {
-        console.log(data);
-
         if (data.name) {
           setCharacter(data);
         } else {

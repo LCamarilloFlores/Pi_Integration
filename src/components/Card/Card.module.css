@@ -58,9 +58,11 @@
 
 @keyframes cerrar {
   50% {
+    margin: 0;
     scale: 0;
   }
   100% {
+    margin: 0;
     scale: 0;
     width: 0;
   }
@@ -101,6 +103,7 @@
   justify-content: center;
   align-items: center;
   text-align: left;
+  user-select: none;
   transform: rotateY(180deg);
   border-radius: 0.8rem;
   -webkit-text-stroke: 0.06rem black;
