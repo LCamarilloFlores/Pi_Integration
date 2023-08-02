@@ -10,9 +10,13 @@ import Fondo from './components/Fondo/Fondo';
 import About from './components/About/About';
 import Detail from './components/Detail/Detail';
 import Form from './components/Form/Form';
+import Favourites from './components/Favourites/Favourites';
+import { useDispatch } from 'react-redux';
+import { removeFav } from './redux/actions';
 // import particlesJS from "./particulas.js";
 
 function App() {
+  const dispatch = useDispatch();
   const [estado, setEstado] = useState(true);
   const [characters, setCharacters] = useState([]);
   // const mueve = () => {
@@ -60,6 +64,7 @@ function App() {
   };
 
   const onClose = (id) => {
+    dispatch(removeFav(id));
     setCharacters(characters.filter((character) => character.id !== id));
   };
   const animar = () => {
@@ -90,6 +95,10 @@ function App() {
             element={<Cards characters={characters} onClose={onClose} />}
           />
           <Route path="/about" element={<About />} />
+          <Route
+            path="/favourites"
+            element={<Favourites onClose={onClose} />}
+          />
           <Route path="/detail/:id" element={<Detail />} />
         </Routes>
       </div>

@@ -34,11 +34,16 @@ export default function SearchBar({ onSearch, estado, animar, logout }) {
         <Boton value="Agregar" callback={handleSearch} />
       </div>
       <div className={styles.links}>
-        <Link to="/about" style={{ textDecoration: 'none' }}>
-          <button className={`${styles.item} ${styles.primero}`}>About</button>
-        </Link>
         <Link to="/home" style={{ textDecoration: 'none' }}>
-          <button className={styles.item}>Home</button>
+          <button className={`${styles.item} ${styles.primero}`}>
+            Principal
+          </button>
+        </Link>
+        <Link to="/favourites" style={{ textDecoration: 'none' }}>
+          <button className={styles.item}>Favoritos</button>
+        </Link>
+        <Link to="/about" style={{ textDecoration: 'none' }}>
+          <button className={styles.item}>Acerca de</button>
         </Link>
         <Boton
           estilo={`${styles.item} ${styles.ultimo}`}

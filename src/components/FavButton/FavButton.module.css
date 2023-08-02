@@ -2,8 +2,8 @@
 .heartSelected {
   backface-visibility: hidden;
   position: absolute;
-  top: 0.5rem;
-  left: 0.5rem;
+  top: 0.7rem;
+  left: 0.7rem;
   z-index: 2;
   background-image: url('./cora1.svg');
   background-size: cover;
@@ -26,4 +26,13 @@
 
 .heartSelected:hover {
   background-image: url('./cora2hover.svg');
+}
+
+.heart span,
+.heartSelected span {
+  position: absolute;
+  font-size: 0.8rem;
+  width: 5rem;
+  left: 2rem;
+  color: white;
 }

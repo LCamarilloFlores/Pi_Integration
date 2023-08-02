@@ -47,7 +47,6 @@
   height: 2.5rem;
   border: none;
   border-left: 2px solid rgba(255, 255, 255, 0.3);
-  border-right: 2px solid rgba(255, 255, 255, 0.3);
   transition: 0.2s ease-in-out;
 }
 
@@ -58,7 +57,7 @@
 }
 
 .ultimo {
-  border: none;
+  border-left: 2px solid rgba(255, 255, 255, 0.3);
   border-top-right-radius: 0.5rem;
   border-bottom-right-radius: 0.5rem;
 }
@@ -74,7 +73,7 @@
   }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1070px) {
   .contenedor {
     flex-direction: column;
   }

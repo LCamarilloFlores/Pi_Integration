@@ -178,8 +178,8 @@
 .cerrarBoton {
   position: absolute;
   z-index: 2;
-  top: 0.4rem;
-  right: 0.4rem;
+  top: 0.9rem;
+  right: 0.9rem;
   background-color: red;
   color: white;
   font-weight: bold;
