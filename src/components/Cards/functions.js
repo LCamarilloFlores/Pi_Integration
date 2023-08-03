@@ -18,12 +18,12 @@ export default function agregarEventos() {
     document.getElementById('downArrow').addEventListener('click', bajar);
 
   function subir() {
+    if (!cardsContainer) return;
     cardsContainer.scrollTop = cardsContainer.scrollTop - 304;
-    console.log(cardsContainer.scrollTop);
   }
 
   function bajar() {
+    if (!cardsContainer) return;
     cardsContainer.scrollTop = cardsContainer.scrollTop + 304;
-    console.log(cardsContainer.scrollTop);
   }
 }

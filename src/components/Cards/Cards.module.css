@@ -16,7 +16,7 @@
 @media (min-width: 900px) {
   .cards {
     height: 19.5rem;
-    overflow-y: auto;
+    overflow-y: scroll;
     scroll-snap-type: y mandatory;
   }
 }
@@ -58,6 +58,7 @@
   z-index: 100;
   border: #004dff;
   transition: 0.5s;
+  opacity: 1;
 }
 
 .arrowDiv:hover {
@@ -85,4 +86,8 @@
   border-right: 13px solid transparent;
   margin: 0 auto;
   border-bottom: 15px solid white;
+}
+
+.invisible {
+  opacity: 0;
 }
