@@ -6,6 +6,7 @@
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+  scroll-behavior: smooth;
 }
 
 .cards card {
@@ -15,7 +16,7 @@
 @media (min-width: 900px) {
   .cards {
     height: 19.5rem;
-    overflow-y: scroll;
+    overflow-y: auto;
     scroll-snap-type: y mandatory;
   }
 }

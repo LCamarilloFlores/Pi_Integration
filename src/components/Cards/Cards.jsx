@@ -1,17 +1,21 @@
 import styles from './Cards.module.css';
 import Card from '../Card/Card';
+import agregarEventos from './functions.js';
+import { useEffect } from 'react';
 
 function Cards({ characters, onClose }) {
-  const handleScroll = (event) => {
-    console.log('Se hizo scroll', event.target);
-  };
+  const handleScroll = (event) => {};
+
+  useEffect(() => {
+    agregarEventos();
+  }, []);
 
   return (
     <div className={styles.contenedorCards}>
-      <button className={`${styles.arrowDiv}`}>
+      <button id="upArrow" className={`${styles.arrowDiv}`}>
         <div className={styles.arrowUp}></div>
       </button>
-      <div className={styles.cards} onScroll={handleScroll}>
+      <div className={styles.cards} onScroll={handleScroll} id="cardsContainer">
         {characters.map((personaje) => {
           return (
             <Card
@@ -23,7 +27,7 @@ function Cards({ characters, onClose }) {
           );
         })}
       </div>
-      <button className={`${styles.arrowDiv}`}>
+      <button id="downArrow" className={`${styles.arrowDiv}`}>
         <div className={styles.arrowDown}></div>
       </button>
     </div>
