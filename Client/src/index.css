@@ -1,0 +1,25 @@
+@font-face {
+  font-family: RickMorty;
+  src: url('./fonts/get_schwifty.ttf');
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:after,
+*:before {
+  box-sizing: inherit;
+}
+
+body {
+  font-size: 62.5%;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: RickMorty, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}

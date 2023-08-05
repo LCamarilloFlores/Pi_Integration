@@ -1,0 +1,28 @@
+.App {
+  font-family: Lato, sans-serif;
+  font-weight: normal;
+  position: relative;
+  width: 100%;
+  height: auto;
+  text-align: center;
+}
+
+.contenedor {
+  margin: 0 auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 2rem;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+.topBar {
+  margin: 0 auto 1rem auto;
+  max-width: 80rem;
+  width: 100%;
+  min-width: 10rem;
+}
+
+/*Particulas*/
