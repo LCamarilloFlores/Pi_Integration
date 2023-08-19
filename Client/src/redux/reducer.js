@@ -7,18 +7,26 @@ const initialValue = {
 
 export default function rootReducer(state = initialValue, action) {
   switch (action.type) {
+    // case creators.ADD_FAV:
+    //   return {
+    //     ...state,
+    //     myFavourites: [...state.myFavourites, action.payload],
+    //   };
     case creators.ADD_FAV:
       return {
         ...state,
-        myFavourites: [...state.myFavourites, action.payload],
+        myFavourites: action.payload,
+        characters: action.payload,
       };
+    // case creators.REMOVE_FAV:
+    //   return {
+    //     ...state,
+    //     myFavourites: state.myFavourites.filter(
+    //       (favChar) => favChar.id !== Number(action.payload)
+    //     ),
+    //   };
     case creators.REMOVE_FAV:
-      return {
-        ...state,
-        myFavourites: state.myFavourites.filter(
-          (favChar) => favChar.id !== Number(action.payload)
-        ),
-      };
+      return { ...state, myFavourites: action.payload };
     default:
       return { ...state };
   }

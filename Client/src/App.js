@@ -32,14 +32,19 @@ function App() {
     password: '1nuncasabe',
   };
 
-  function login(userData) {
-    if (
-      userData.password === loginData.password &&
-      userData.email.toLowerCase() === loginData.email.toLowerCase()
-    ) {
-      setAccess(true);
-      navigate('/home');
-    } else alert('Datos de inicio de sesión incorrectos.');
+  async function login(userData) {
+    const { email, password } = userData;
+    try {
+      const URL = 'http://localhost:3001/rickandmorty/login';
+      const { data } = await axios(
+        URL + `?email=${email}&password=${password}`
+      );
+      const { access } = data;
+      setAccess(access);
+      access ? navigate('/home') : alert('Datos incorrectos');
+    } catch (error) {
+      console.log(error.message);
+    }
   }
 
   function logout() {
@@ -51,16 +56,19 @@ function App() {
     !access && navigate('/');
   }, [access]);
 
-  const onSearch = (id) => {
-    axios(`http://localhost:3001/rickandmorty/character/${id}`)
-      .then(({ data }) => {
-        if (!characters.find((caracter) => caracter.id === data.id)) {
-          setCharacters((oldChars) => [...oldChars, data]);
-        } else {
-          window.alert(`¡Ya existe el caracter con id ${id} (${data.name})!`);
-        }
-      })
-      .catch((err) => window.alert(err));
+  const onSearch = async (id) => {
+    try {
+      const { data } = await axios(
+        `http://localhost:3001/rickandmorty/character/${id}`
+      );
+      if (!characters.find((caracter) => caracter.id === data.id)) {
+        setCharacters((oldChars) => [...oldChars, data]);
+      } else {
+        window.alert(`¡Ya existe el caracter con id ${id} (${data.name})!`);
+      }
+    } catch (err) {
+      window.alert(err);
+    }
   };
 
   const onClose = (id) => {

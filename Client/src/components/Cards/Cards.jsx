@@ -2,6 +2,7 @@ import styles from './Cards.module.css';
 import Card from '../Card/Card';
 import agregarEventos from './functions.js';
 import { useEffect, useState } from 'react';
+import { useAutoAnimate } from '@formkit/auto-animate/react';
 
 function Cards({ characters, onClose }) {
   const [scrollState, setScrollState] = useState({
@@ -9,6 +10,8 @@ function Cards({ characters, onClose }) {
     scrollHeight: 0,
     clientHeight: 0,
   });
+
+  const [parent, enableAnimations] = useAutoAnimate();
 
   const handleScroll = () => {
     const contenedor = document.getElementById('cardsContainer');
@@ -35,7 +38,12 @@ function Cards({ characters, onClose }) {
         <div className={styles.arrowUp}></div>
       </button>
 
-      <div className={styles.cards} id="cardsContainer" onScroll={handleScroll}>
+      <div
+        className={styles.cards}
+        id="cardsContainer"
+        onScroll={handleScroll}
+        ref={parent}
+      >
         {characters.map((personaje) => {
           return (
             <Card

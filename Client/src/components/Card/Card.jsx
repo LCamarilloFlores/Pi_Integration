@@ -21,12 +21,12 @@ function Card({ props, onClose }) {
   };
 
   const cerrar = (id) => {
-    const carta = document.getElementById(id);
-    // carta.classList.remove(styles.frontal);
-    carta.classList.add(styles.cerrar);
-    setTimeout(() => {
-      onClose(props.id);
-    }, 1000);
+    onClose(props.id);
+    // const carta = document.getElementById(id);
+    // // carta.classList.remove(styles.frontal);
+    // carta.classList.add(styles.cerrar);
+    // setTimeout(() => {
+    // }, 1000);
   };
 
   return (

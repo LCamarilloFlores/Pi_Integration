@@ -56,13 +56,32 @@
   font-size: 30px;
   box-shadow: 2px 2px 3px #999;
   z-index: 100;
-  border: #004dff;
+  border: 1px solid #ffffff;
   transition: 0.5s;
   opacity: 1;
+  animation: mover 1s infinite ease-in-out;
+}
+
+@keyframes mover {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(5px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
 }
 
 .arrowDiv:hover {
-  transform: scale(1.1);
+  background-color: #9ab3f0;
+}
+
+@media (max-width: 900px) {
+  .arrowDiv {
+    display: none;
+  }
 }
 
 .arrowDiv:active {
@@ -90,4 +109,9 @@
 
 .invisible {
   opacity: 0;
+}
+
+.arrowDiv:hover .arrowDown,
+.arrowDiv:hover .arrowUp {
+  border-bottom: 15px solid#020cd1;
 }
