@@ -1,24 +1,20 @@
-const http = require('http');
-const { getCharById } = require('./controllers/getCharById.js');
+const express = require('express');
+const server = express();
+const router = require('./routes/index');
+const PORT = process.env.PORT || 3001;
 
-const PORT = process.env.PORT ?? 3001;
+server.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Credentials', 'true');
+  res.header(
+    'Access-Control-Allow-Headers',
+    'Origin, X-Requested-With, Content-Type, Accept'
+  );
+  res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
+  next();
+});
 
-http
-  .createServer((req, res) => {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    const { url } = req;
+server.use(express.json());
+server.use('/rickandmorty', router);
 
-    if (url.includes('/rickandmorty/character/')) {
-      const id = url.split('/rickandmorty/character/')[1];
-      if (!id) {
-        res.writeHead(404, { 'Content-Type': 'text/plain' });
-        return res.end(`No se especifico el id`);
-      }
-      return getCharById(res, id);
-      // res.writeHead(200, { 'Content-Type': 'application/json' });
-      // return res.end(JSON.stringify(character));
-    }
-    res.writeHead(404, { 'Content-Type': 'text/plain' });
-    return res.end(`No se encuentra la ruta ${url}`);
-  })
-  .listen(PORT, 'localhost');
+server.listen(PORT, 'localhost');

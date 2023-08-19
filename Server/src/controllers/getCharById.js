@@ -1,19 +1,19 @@
 const axios = require('axios');
+require('dotenv').config();
+const { URL } = process.env;
 
-function getCharById(res, id) {
-  axios(`https://rickandmortyapi.com/api/character/${id}`)
-    .then((response) => response.data)
-    .then(({ id, name, gender, species, origin, image, status }) => {
-      const character = { id, name, gender, species, origin, image, status };
-      res.writeHead(200, { 'Content-type': 'application/json' });
-      return res.end(JSON.stringify(character));
+const getCharById = (req, res) => {
+  const { id } = req.params;
+  axios(`${URL}/${id}`)
+    .then(({ data }) => {
+      const { id, status, name, species, origin, image, gender } = data;
+      return name
+        ? res.json({ id, status, name, species, origin, image, gender })
+        : res.status(404).json({ message: 'Not Found' });
     })
-    .catch((reason) => {
-      res.writeHead(500, { 'Content-type': 'text/plain' });
-      return res.end(reason.message);
+    .catch((error) => {
+      return res.status(500).json({ error: error.message });
     });
-}
-
-module.exports = {
-  getCharById,
 };
+
+module.exports = getCharById;
