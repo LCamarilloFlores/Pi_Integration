@@ -2,7 +2,7 @@ import { useState } from 'react';
 import styles from './Form.module.css';
 import validate from './validation';
 
-export default function Form({ login }) {
+export default function Form({ login, formError }) {
   const [userData, setUserData] = useState({
     email: '',
     password: '',
@@ -24,7 +24,7 @@ export default function Form({ login }) {
 
   return (
     <div className={styles.contenedorForm}>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} method="POST">
         <h1>Inicio de Sesión</h1>
         <div className={styles.campo}>
           <label htmlFor="email">Email: </label>
@@ -46,6 +46,7 @@ export default function Form({ login }) {
             onChange={handleChange}
           />
         </div>
+        {formError ? <div className={styles.formError}>{formError}</div> : ''}
         <button className={styles.myButton}>Iniciar Sesión</button>
       </form>
     </div>

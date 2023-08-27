@@ -83,3 +83,13 @@ Form h1 {
 .myButton:hover {
   background-color: rgba(89, 0, 255, 0.698);
 }
+
+.formError {
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+  border-radius: 2rem;
+  width: 100%;
+  background-color: rgba(245, 10, 10, 0.8);
+  color: white;
+  text-transform: uppercase;
+}

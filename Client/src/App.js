@@ -18,6 +18,7 @@ import { removeFav } from './redux/actions';
 function App() {
   const dispatch = useDispatch();
   const [estado, setEstado] = useState(true);
+  const [formError, setformError] = useState(null);
   const [characters, setCharacters] = useState([]);
   // const mueve = () => {
   //   const fondo = document.getElementsByClassName("fondo");
@@ -36,12 +37,10 @@ function App() {
     const { email, password } = userData;
     try {
       const URL = 'http://localhost:3001/rickandmorty/login';
-      const { data } = await axios(
-        URL + `?email=${email}&password=${password}`
-      );
-      const { access } = data;
+      const { data } = await axios.post(URL, { email, password });
+      const { access, message } = data;
       setAccess(access);
-      access ? navigate('/home') : alert('Datos incorrectos');
+      access ? navigate('/home') : setformError(message);
     } catch (error) {
       console.log(error.message);
     }
@@ -97,7 +96,10 @@ function App() {
         )}
 
         <Routes>
-          <Route path="/" element={<Form login={login} />} />
+          <Route
+            path="/"
+            element={<Form login={login} formError={formError} />}
+          />
           <Route
             path="/home"
             element={<Cards characters={characters} onClose={onClose} />}
