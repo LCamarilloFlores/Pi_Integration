@@ -13,15 +13,18 @@ html {
   box-sizing: inherit;
 }
 
+button,
+label,
+select {
+  font-family: Roboto, sans-serif !important;
+}
+
 body {
   font-size: 62.5%;
   margin: 0;
+  font-family: Roboto, sans-serif !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: RickMorty, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
 #root {

@@ -4,7 +4,8 @@ import { useParams } from 'react-router-dom';
 import FavButton from '../FavButton/FavButton';
 import styles from './Detail.module.css';
 import styled, { keyframes } from 'styled-components';
-
+import { motion } from 'framer-motion';
+import BotonBack from '../BotonBack/BotonBack';
 const breatheAnimation = keyframes`
     0% { scale:1 }
     30% { scale:1.03}
@@ -60,8 +61,14 @@ function Detail() {
   }, [id]);
   if (character.origin) {
     return (
-      <div className={styles.contenedor}>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1, transition: { delay: 0.4, duration: 0.4 } }}
+        exit={{ opacity: 0 }}
+        className={styles.contenedor}
+      >
         <div className={styles.contenedorImagen}>
+          <BotonBack />
           <Imagen imagen={character.image} />
         </div>
         <div className={styles.info}>
@@ -84,7 +91,7 @@ function Detail() {
             </ul>
           </div>
         </div>
-      </div>
+      </motion.div>
     );
   }
 }

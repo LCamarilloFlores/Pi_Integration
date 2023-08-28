@@ -1,0 +1,9 @@
+.filtrosContainer {
+  color: white;
+  width: 20rem;
+}
+
+.filtrosContainer label {
+  padding: 0.8rem;
+  font-size: 0.8rem;
+}

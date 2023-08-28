@@ -1,50 +1,25 @@
 /* eslint-disable multiline-ternary */
 import styles from './App.module.css';
-import Cards from './components/Cards/Cards.jsx';
 import Nav from './components/Nav/Nav.jsx';
-import axios from 'axios';
 import { useState, useEffect } from 'react';
-import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import Particles from './components/Particles/Particles';
 import Fondo from './components/Fondo/Fondo';
-import About from './components/About/About';
-import Detail from './components/Detail/Detail';
-import Form from './components/Form/Form';
-import Favourites from './components/Favourites/Favourites';
-import { useDispatch } from 'react-redux';
-import { removeFav } from './redux/actions';
+import AnimatedRoutes from './components/AnimatedRoutes/AnimatedRoutes';
+import axios from 'axios';
 // import particlesJS from "./particulas.js";
 
 function App() {
-  const dispatch = useDispatch();
   const [estado, setEstado] = useState(true);
-  const [formError, setformError] = useState(null);
   const [characters, setCharacters] = useState([]);
   // const mueve = () => {
   //   const fondo = document.getElementsByClassName("fondo");
   //   fondo.className = "fondo2";
   // };
-  const navigate = useNavigate();
 
   const [access, setAccess] = useState();
 
-  const loginData = {
-    email: 'JuanitoBanana@correo.com',
-    password: '1nuncasabe',
-  };
-
-  async function login(userData) {
-    const { email, password } = userData;
-    try {
-      const URL = 'http://localhost:3001/rickandmorty/login';
-      const { data } = await axios.post(URL, { email, password });
-      const { access, message } = data;
-      setAccess(access);
-      access ? navigate('/home') : setformError(message);
-    } catch (error) {
-      console.log(error.message);
-    }
-  }
+  const navigate = useNavigate();
 
   function logout() {
     setAccess(false);
@@ -70,10 +45,6 @@ function App() {
     }
   };
 
-  const onClose = (id) => {
-    dispatch(removeFav(id));
-    setCharacters(characters.filter((character) => character.id !== id));
-  };
   const animar = () => {
     setEstado(!estado);
   };
@@ -94,23 +65,11 @@ function App() {
         ) : (
           ''
         )}
-
-        <Routes>
-          <Route
-            path="/"
-            element={<Form login={login} formError={formError} />}
-          />
-          <Route
-            path="/home"
-            element={<Cards characters={characters} onClose={onClose} />}
-          />
-          <Route path="/about" element={<About />} />
-          <Route
-            path="/favourites"
-            element={<Favourites onClose={onClose} />}
-          />
-          <Route path="/detail/:id" element={<Detail />} />
-        </Routes>
+        <AnimatedRoutes
+          setAccess={setAccess}
+          characters={characters}
+          setCharacters={setCharacters}
+        />
       </div>
     </div>
   );

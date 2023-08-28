@@ -3,15 +3,22 @@ import Card from '../Card/Card';
 import agregarEventos from './functions.js';
 import { useEffect, useState } from 'react';
 import { useAutoAnimate } from '@formkit/auto-animate/react';
+import { motion } from 'framer-motion';
+import { contenedor } from './animations';
+import Filtro from '../Filtro/Filtro';
 
-function Cards({ characters, onClose }) {
+function Cards({ characters, onClose, titulo }) {
   const [scrollState, setScrollState] = useState({
     scrollTop: 0,
     scrollHeight: 0,
     clientHeight: 0,
   });
 
-  const [parent, enableAnimations] = useAutoAnimate();
+  const [parent] = useAutoAnimate({
+    // Animation duration in milliseconds (default: 250)
+    duration: 350,
+    // Easing for motion (default: 'ease-in-out')
+  });
 
   const handleScroll = () => {
     const contenedor = document.getElementById('cardsContainer');
@@ -28,7 +35,17 @@ function Cards({ characters, onClose }) {
   }, [characters]);
 
   return (
-    <div className={styles.contenedorCards}>
+    <motion.div
+      variants={contenedor}
+      initial="hidden"
+      animate="visible"
+      exit="hidden"
+      className={styles.contenedorCards}
+    >
+      <div className={styles.headerBar}>
+        <Filtro />
+        <h3>{titulo}</h3>
+      </div>
       <button
         id="upArrow"
         className={`${styles.arrowDiv} ${
@@ -65,7 +82,7 @@ function Cards({ characters, onClose }) {
       >
         <div className={styles.arrowDown}></div>
       </button>
-    </div>
+    </motion.div>
   );
 }
 

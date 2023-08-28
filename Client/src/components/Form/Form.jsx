@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import styles from './Form.module.css';
 import validate from './validation';
+import { motion } from 'framer-motion';
 
 export default function Form({ login, formError }) {
   const [userData, setUserData] = useState({
@@ -19,11 +20,16 @@ export default function Form({ login, formError }) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    console.log(errors);
     Object.values(errors).length === 0 && login(userData);
   };
 
   return (
-    <div className={styles.contenedorForm}>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1, transition: { duration: 0.8, delay: 0.4 } }}
+      className={styles.contenedorForm}
+    >
       <form onSubmit={handleSubmit} method="POST">
         <h1>Inicio de Sesión</h1>
         <div className={styles.campo}>
@@ -46,9 +52,17 @@ export default function Form({ login, formError }) {
             onChange={handleChange}
           />
         </div>
-        {formError ? <div className={styles.formError}>{formError}</div> : ''}
-        <button className={styles.myButton}>Iniciar Sesión</button>
+        {formError || Object.values(errors)[0] ? (
+          <div className={styles.formError}>
+            {formError || Object.values(errors)[0]}
+          </div>
+        ) : (
+          ''
+        )}
+        <button type="submit" className={styles.myButton}>
+          Iniciar Sesión
+        </button>
       </form>
-    </div>
+    </motion.div>
   );
 }
