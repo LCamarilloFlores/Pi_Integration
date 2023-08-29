@@ -4,7 +4,9 @@ import { useParams } from 'react-router-dom';
 import FavButton from '../FavButton/FavButton';
 import styles from './Detail.module.css';
 import styled, { keyframes } from 'styled-components';
+import { SHOW_LOADING, HIDE_LOADING } from '../../redux/actionCreators';
 import { motion } from 'framer-motion';
+import { useDispatch } from 'react-redux';
 import BotonBack from '../BotonBack/BotonBack';
 const breatheAnimation = keyframes`
     0% { scale:1 }
@@ -44,26 +46,33 @@ const Imagen = styled.div`
 `;
 
 function Detail() {
+  const dispatch = useDispatch();
   const { id } = useParams();
   const [character, setCharacter] = useState({});
 
   useEffect(() => {
-    axios(`http://localhost:3001/rickandmorty/character/${id}`).then(
-      ({ data }) => {
-        if (data.name) {
-          setCharacter(data);
-        } else {
-          window.alert('No hay personajes con ese ID');
+    dispatch({ type: SHOW_LOADING });
+
+    setTimeout(() => {
+      axios(`http://localhost:3001/rickandmorty/character/${id}`).then(
+        ({ data }) => {
+          if (data.name) {
+            setCharacter(data);
+          } else {
+            window.alert('No hay personajes con ese ID');
+          }
+          dispatch({ type: HIDE_LOADING });
         }
-      }
-    );
+      );
+    }, 300);
+
     return setCharacter({});
   }, [id]);
   if (character.origin) {
     return (
       <motion.div
         initial={{ opacity: 0 }}
-        animate={{ opacity: 1, transition: { delay: 0.4, duration: 0.4 } }}
+        animate={{ opacity: 1, transition: { duration: 0.4 } }}
         exit={{ opacity: 0 }}
         className={styles.contenedor}
       >

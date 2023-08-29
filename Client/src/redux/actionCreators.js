@@ -1,7 +1,11 @@
 const ADD_FAV = 'ADD_FAV';
 const REMOVE_FAV = 'REMOVE_FAV';
+const SHOW_LOADING = 'SHOW_LOADING';
+const HIDE_LOADING = 'HIDE_LOADING';
 
 module.exports = {
   ADD_FAV,
   REMOVE_FAV,
+  SHOW_LOADING,
+  HIDE_LOADING,
 };

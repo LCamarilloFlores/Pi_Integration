@@ -10,6 +10,7 @@ import Cards from '../Cards/Cards.jsx';
 import { useState } from 'react';
 import axios from 'axios';
 import { AnimatePresence } from 'framer-motion';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function AnimatedRoutes({ setAccess, characters, setCharacters }) {
   const [formError, setformError] = useState(null);
@@ -29,7 +30,12 @@ function AnimatedRoutes({ setAccess, characters, setCharacters }) {
       const { data } = await axios.post(URL, { email, password });
       const { access, message } = data;
       setAccess(access);
-      access ? navigate('/home') : setformError(message);
+      if (access) {
+        setformError(null);
+        navigate('/home');
+      } else {
+        setformError(message);
+      }
     } catch (error) {
       console.log(error.message);
     }

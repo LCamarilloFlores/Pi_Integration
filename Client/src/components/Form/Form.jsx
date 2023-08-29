@@ -52,9 +52,9 @@ export default function Form({ login, formError }) {
             onChange={handleChange}
           />
         </div>
-        {formError || Object.values(errors)[0] ? (
+        {Object.values(errors)[0] || formError ? (
           <div className={styles.formError}>
-            {formError || Object.values(errors)[0]}
+            {Object.values(errors)[0] || formError}
           </div>
         ) : (
           ''

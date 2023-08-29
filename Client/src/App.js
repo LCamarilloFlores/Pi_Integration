@@ -7,9 +7,12 @@ import Particles from './components/Particles/Particles';
 import Fondo from './components/Fondo/Fondo';
 import AnimatedRoutes from './components/AnimatedRoutes/AnimatedRoutes';
 import axios from 'axios';
+import Preloader from './components/Preloader/Preloader';
+import { useSelector } from 'react-redux';
 // import particlesJS from "./particulas.js";
 
 function App() {
+  const loading = useSelector((state) => state.loading);
   const [estado, setEstado] = useState(true);
   const [characters, setCharacters] = useState([]);
   // const mueve = () => {
@@ -50,8 +53,11 @@ function App() {
   };
   return (
     <div className={styles.App}>
+      {/* Common */}
+      {loading && <Preloader />}
       <Particles estado={estado} />
       <Fondo estado={estado} />
+      {/* EndCommon */}
       <div className={styles.contenedor}>
         {useLocation().pathname !== '/' ? (
           <div className={styles.topBar}>

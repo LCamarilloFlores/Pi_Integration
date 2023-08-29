@@ -1,4 +1,4 @@
-import actions from './actionCreators';
+import actions, { HIDE_LOADING } from './actionCreators';
 import axios from 'axios';
 
 // export function addFav(props) {
