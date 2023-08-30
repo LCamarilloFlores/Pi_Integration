@@ -6,16 +6,20 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import Particles from './components/Particles/Particles';
 import Fondo from './components/Fondo/Fondo';
 import AnimatedRoutes from './components/AnimatedRoutes/AnimatedRoutes';
-import axios from 'axios';
+import { addCharacter } from './redux/actions';
 import Preloader from './components/Preloader/Preloader';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 // import particlesJS from "./particulas.js";
 
 function App() {
   const location = useLocation();
   const loading = useSelector((state) => state.loading);
+  const dispatch = useDispatch();
   const [estado, setEstado] = useState(true);
-  const [characters, setCharacters] = useState([]);
+  const [characters, statistics] = useSelector((state) => [
+    state.characters,
+    state.statistics,
+  ]);
   // const mueve = () => {
   //   const fondo = document.getElementsByClassName("fondo");
   //   fondo.className = "fondo2";
@@ -36,14 +40,16 @@ function App() {
   }, [access]);
 
   const onSearch = async (id) => {
+    if (location.pathname !== '/home') window.location.href = '/home';
+    const existente = characters.find((caracter) => caracter.id === id);
     try {
-      const { data } = await axios(
-        `http://localhost:3001/rickandmorty/character/${id}`
-      );
-      if (!characters.find((caracter) => caracter.id === data.id)) {
-        setCharacters((oldChars) => [...oldChars, data]);
+      console.log(statistics);
+      if (!existente) {
+        dispatch(addCharacter(id, statistics));
       } else {
-        window.alert(`¡Ya existe el caracter con id ${id} (${data.name})!`);
+        window.alert(
+          `¡Ya existe el caracter con id ${id} (${existente.name})!`
+        );
       }
     } catch (err) {
       window.alert(err);
@@ -73,11 +79,7 @@ function App() {
         ) : (
           ''
         )}
-        <AnimatedRoutes
-          setAccess={setAccess}
-          characters={characters}
-          setCharacters={setCharacters}
-        />
+        <AnimatedRoutes setAccess={setAccess} characters={characters} />
       </div>
     </div>
   );

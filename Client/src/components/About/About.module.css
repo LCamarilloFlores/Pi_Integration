@@ -25,14 +25,16 @@
 }
 
 .titulo {
-  font-size: 2rem;
+  font-size: 3rem;
   text-align: center;
   font-weight: 800;
   letter-spacing: 0.1rem;
+  -webkit-text-stroke: 0.8px rgba(224, 199, 199, 0.918);
+  margin-bottom: 3rem;
 }
 
 .container p {
-  font-family: Lato;
+  font-family: RickMorty;
   font-weight: 800;
   font-size: 2rem;
   color: white;

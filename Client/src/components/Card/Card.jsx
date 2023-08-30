@@ -30,34 +30,38 @@ function Card({ props, onClose }) {
   };
 
   return (
-    <div
-      id={props.id}
-      className={styles.card}
-      onClick={(event) => girar(props.id, event)}
-    >
-      <FavButton id={`fav-${props.id}`} character={props} />
-      <button id={`boton-${props.id}`} className={styles.cerrarBoton}>
-        x
-      </button>
-      <Link to={`/detail/${props.id}`}>
-        <h2 className={styles.nombre}>{props.name}</h2>
-      </Link>
-      <div className={styles.datos}>
-        <ul>
-          <li>{props.name}</li>
-          <li>{props.status}</li>
-          <li>{props.species}</li>
-          <li>{props.gender}</li>
-          <li>{props.origin.name}</li>
-        </ul>
+    props.name && (
+      <div
+        key={props.id}
+        id={props.id}
+        className={styles.card}
+        onClick={(event) => girar(props.id, event)}
+      >
+        <FavButton id={`fav-${props.id}`} character={props} />
+        <button
+          id={`boton-${props.id}`}
+          className={styles.cerrarBoton}
+        ></button>
+        <Link to={`/detail/${props.id}`}>
+          <h2 className={styles.nombre}>{props.name}</h2>
+        </Link>
+        <div className={styles.datos}>
+          <ul>
+            <li>{props.name}</li>
+            <li>{props.status}</li>
+            <li>{props.species}</li>
+            <li>{props.gender}</li>
+            <li>{props.origin.name}</li>
+          </ul>
+        </div>
+        <div className={styles.backImage}></div>
+        <img
+          className={styles.imagen}
+          src={props.image}
+          alt={props.name + ' - Imagen'}
+        />
       </div>
-      <div className={styles.backImage}></div>
-      <img
-        className={styles.imagen}
-        src={props.image}
-        alt={props.name + ' - Imagen'}
-      />
-    </div>
+    )
   );
 }
 export default Card;

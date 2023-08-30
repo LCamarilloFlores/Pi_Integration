@@ -179,20 +179,24 @@
 .cerrarBoton {
   position: absolute;
   z-index: 2;
-  top: 0.9rem;
-  right: 0.9rem;
-  background-color: red;
-  color: white;
+  top: 0.8rem;
+  right: 0.8rem;
+  background-image: url('./eliminar.png');
+  background-position: center center;
+  background-size: 2.5rem;
   font-weight: bold;
   font-size: 1rem;
-  border: 1px solid rgba(0, 0, 0, 0.5);
   cursor: pointer;
-  border-radius: 0.2rem;
+  width: 1.8rem;
+  height: 1.8rem;
+  border-radius: 50%;
 }
 
 .cerrarBoton:hover {
-  background-color: rgb(255, 119, 0);
-  border: 1px solid black;
+  scale: 1.1;
+  -webkit-box-shadow: 0px 0px 17px 1px rgba(255, 255, 255, 0.9);
+  -moz-box-shadow: 0px 0px 17px 1px rgba(255, 255, 255, 0.9);
+  box-shadow: 0px 0px 17px 1px rgba(255, 255, 255, 0.9);
 }
 .imagen {
   z-index: 1;

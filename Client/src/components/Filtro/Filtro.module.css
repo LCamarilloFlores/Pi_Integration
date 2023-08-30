@@ -1,11 +1,22 @@
 .filtrosContainer {
-  padding: 0.5rem;
-  color: white;
-  width: 30rem;
+  display: flex;
 }
 
-.filtrosContainer label {
-  padding: 0.8rem;
+.filtro {
+  display: flex;
+  height: 3rem;
+  padding: 0.5rem;
+  color: white;
+  width: 15rem;
+}
+
+.filtro label {
+  width: 10rem;
+  padding-right: 0.5rem;
   font-weight: 700;
   font-size: 1.2rem;
+}
+
+.filtro select {
+  padding: 0rem 1rem;
 }
