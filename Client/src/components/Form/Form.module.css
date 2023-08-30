@@ -17,7 +17,7 @@ Form {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  backdrop-filter: blur(1px);
+  backdrop-filter: blur(4px);
   border: 2px solid rgba(210, 210, 200, 0.3);
 }
 
@@ -100,4 +100,14 @@ Form h1 {
   background-color: rgba(245, 10, 10, 0.8);
   color: white;
   text-transform: uppercase;
+}
+
+.registrarse {
+  padding: 0.5rem 0 1rem 0;
+  color: white;
+}
+
+.registrarse a {
+  color: rgb(224, 224, 255);
+  text-decoration: none;
 }

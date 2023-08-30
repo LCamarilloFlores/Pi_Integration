@@ -12,6 +12,7 @@ import { useSelector } from 'react-redux';
 // import particlesJS from "./particulas.js";
 
 function App() {
+  const location = useLocation();
   const loading = useSelector((state) => state.loading);
   const [estado, setEstado] = useState(true);
   const [characters, setCharacters] = useState([]);
@@ -30,7 +31,8 @@ function App() {
   }
 
   useEffect(() => {
-    !access && navigate('/');
+    if (location.pathname !== '/registrar' && location.pathname !== '/')
+      !access && navigate('/');
   }, [access]);
 
   const onSearch = async (id) => {
@@ -59,7 +61,7 @@ function App() {
       <Fondo estado={estado} />
       {/* EndCommon */}
       <div className={styles.contenedor}>
-        {useLocation().pathname !== '/' ? (
+        {location.pathname !== '/' && location.pathname !== '/registrar' ? (
           <div className={styles.topBar}>
             <Nav
               onSearch={onSearch}

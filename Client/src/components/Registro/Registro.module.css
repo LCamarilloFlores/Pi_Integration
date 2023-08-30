@@ -1,0 +1,42 @@
+.contenedor {
+  margin: 0 auto;
+  padding: 2rem;
+  max-width: 60rem;
+  width: 100%;
+  height: 100%;
+}
+
+.titulo {
+  margin-bottom: 1rem;
+  font-family: RickMorty, Menlo, Monaco, Consolas, 'Courier New', monospace;
+  list-style: none;
+  font-family: RickMorty;
+  font-weight: bold;
+  line-height: 1.8;
+  color: white;
+  font-size: 2rem;
+  -webkit-text-stroke: 0.8px rgba(63, 232, 63, 0.5);
+}
+
+.formRegistro {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(10px);
+  background-color: rgba(7, 58, 7, 0.5);
+}
+
+.campo {
+  display: flex;
+  width: 30rem;
+}
+
+.campo label {
+  width: 15rem;
+  text-align: right;
+  padding-right: 1rem;
+  color: white;
+  font-weight: 800;
+}

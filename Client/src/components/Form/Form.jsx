@@ -59,6 +59,9 @@ export default function Form({ login, formError }) {
         ) : (
           ''
         )}
+        <div className={styles.registrarse}>
+          No tienes cuenta? <a href="/registrar">Registrate aquí.</a>
+        </div>
         <button type="submit" className={styles.myButton}>
           Iniciar Sesión
         </button>

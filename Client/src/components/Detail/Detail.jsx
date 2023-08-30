@@ -53,18 +53,16 @@ function Detail() {
   useEffect(() => {
     dispatch({ type: SHOW_LOADING });
 
-    setTimeout(() => {
-      axios(`http://localhost:3001/rickandmorty/character/${id}`).then(
-        ({ data }) => {
-          if (data.name) {
-            setCharacter(data);
-          } else {
-            window.alert('No hay personajes con ese ID');
-          }
-          dispatch({ type: HIDE_LOADING });
+    axios(`http://localhost:3001/rickandmorty/character/${id}`).then(
+      ({ data }) => {
+        if (data.name) {
+          setCharacter(data);
+        } else {
+          window.alert('No hay personajes con ese ID');
         }
-      );
-    }, 300);
+        dispatch({ type: HIDE_LOADING });
+      }
+    );
 
     return setCharacter({});
   }, [id]);
@@ -77,11 +75,11 @@ function Detail() {
         className={styles.contenedor}
       >
         <div className={styles.contenedorImagen}>
-          <BotonBack />
+          <BotonBack grande={true} />
           <Imagen imagen={character.image} />
         </div>
         <div className={styles.info}>
-          <h1 className={styles.name}>{character.name}</h1>
+          <h1 className={styles.titulo}>{character.name}</h1>
           <FavButton texto="Agregar a Favoritos" character={character} />
           <div>
             <ul>

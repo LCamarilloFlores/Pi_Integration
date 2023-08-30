@@ -1,22 +1,21 @@
 import React from 'react';
-import { Route, Routes, useNavigate, useLocation } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { Route, Routes } from 'react-router-dom';
 import { removeFav } from '../../redux/actions';
 import About from '../About/About';
 import Detail from '../Detail/Detail';
+import Registro from '../Registro/Registro';
 import Form from '../Form/Form';
 import Favourites from '../Favourites/Favourites';
 import Cards from '../Cards/Cards.jsx';
-import { useState } from 'react';
+import useRoutingHook from './CustomHooks';
+
 import axios from 'axios';
 import { AnimatePresence } from 'framer-motion';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function AnimatedRoutes({ setAccess, characters, setCharacters }) {
-  const [formError, setformError] = useState(null);
-  const dispatch = useDispatch();
-  const location = useLocation();
-  const navigate = useNavigate();
+  const [dispatch, location, navigate, formError, setformError] =
+    useRoutingHook();
 
   const onClose = (id) => {
     dispatch(removeFav(id));
@@ -58,6 +57,7 @@ function AnimatedRoutes({ setAccess, characters, setCharacters }) {
           }
         />
         <Route path="/about" element={<About />} />
+        <Route path="/registrar" element={<Registro />} />
         <Route path="/favourites" element={<Favourites onClose={onClose} />} />
         <Route path="/detail/:id" element={<Detail />} />
       </Routes>

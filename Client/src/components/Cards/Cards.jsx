@@ -44,7 +44,7 @@ function Cards({ characters, onClose, titulo }) {
     >
       <div className={styles.headerBar}>
         <Filtro />
-        <h3>{titulo}</h3>
+        <h3 className={styles.tituloCards}>{titulo}</h3>
       </div>
       <button
         id="upArrow"

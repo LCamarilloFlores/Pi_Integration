@@ -72,3 +72,15 @@ ul li span {
     margin-bottom: 2rem;
   }
 }
+
+.titulo {
+  margin: 1rem;
+  font-family: RickMorty, Menlo, Monaco, Consolas, 'Courier New', monospace;
+  list-style: none;
+  font-family: RickMorty;
+  font-weight: bold;
+  line-height: 1.8;
+  color: white;
+  font-size: 2rem;
+  -webkit-text-stroke: 0.8px rgba(63, 232, 63, 0.5);
+}
