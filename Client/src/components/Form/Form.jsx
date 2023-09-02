@@ -2,14 +2,18 @@ import { useState } from 'react';
 import styles from './Form.module.css';
 import validate from './validation';
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 
 export default function Form({ login, formError }) {
+  const navigate = useNavigate();
   const [userData, setUserData] = useState({
     email: '',
     password: '',
   });
 
   const [errors, setErrors] = useState({});
+
+  if (localStorage.getItem('access') === 'true') window.location.href = '/home';
 
   const handleChange = (event) => {
     const propiedad = event.target.name;

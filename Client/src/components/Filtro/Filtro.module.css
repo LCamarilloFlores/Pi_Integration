@@ -1,5 +1,6 @@
 .filtrosContainer {
   display: flex;
+  width: 60rem;
 }
 
 .filtro {
@@ -7,16 +8,21 @@
   height: 3rem;
   padding: 0.5rem;
   color: white;
-  width: 15rem;
+  width: 25rem;
 }
 
 .filtro label {
-  width: 10rem;
+  width: 15rem;
   padding-right: 0.5rem;
   font-weight: 700;
   font-size: 1.2rem;
+  text-align: right;
 }
 
 .filtro select {
   padding: 0rem 1rem;
+}
+
+.largo {
+  width: 25rem;
 }

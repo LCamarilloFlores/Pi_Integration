@@ -25,18 +25,19 @@ function App() {
   //   fondo.className = "fondo2";
   // };
 
-  const [access, setAccess] = useState();
+  const [access, setAccess] = useState(localStorage.getItem('access'));
 
   const navigate = useNavigate();
 
   function logout() {
-    setAccess(false);
+    setAccess('false');
+    localStorage.setItem('access', 'false');
     navigate('/');
   }
 
   useEffect(() => {
     if (location.pathname !== '/registrar' && location.pathname !== '/')
-      !access && navigate('/');
+      access !== 'true' && navigate('/');
   }, [access]);
 
   const onSearch = async (id) => {
@@ -45,7 +46,9 @@ function App() {
     try {
       console.log(statistics);
       if (!existente) {
-        dispatch(addCharacter(id, statistics));
+        dispatch(addCharacter(id, statistics)).catch((error) =>
+          alert('No se encontró en el servidor')
+        );
       } else {
         window.alert(
           `¡Ya existe el caracter con id ${id} (${existente.name})!`

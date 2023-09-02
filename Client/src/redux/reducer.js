@@ -5,8 +5,8 @@ const initialValue = {
   myFavourites: [],
   filter: 'all',
   by: [],
-  statistics: [{ origin: 0 }, { species: 0 }, { gender: 0 }, { status: 0 }],
-  result: [],
+  statistics: [{ origin: {} }, { species: {} }, { gender: {} }, { status: {} }],
+  activeFilter: '',
   loading: false,
 };
 
@@ -38,7 +38,10 @@ export default function rootReducer(state = initialValue, action) {
     case creators.APPLY_FILTER:
       return { ...state, filter: action.payload };
     case creators.ADD_CHARACTER: {
-      return { ...state, characters: [...state.characters, action.payload] };
+      return {
+        ...state,
+        characters: [...state.characters, action.payload],
+      };
     }
     case creators.REMOVE_CHARACTER:
       return {
@@ -50,6 +53,20 @@ export default function rootReducer(state = initialValue, action) {
       return {
         ...state,
         statistics: [...action.payload],
+      };
+
+    case creators.FILTRO:
+      return {
+        ...state,
+        filter: action.payload,
+        by: state.statistics.filter((item) =>
+          item.hasOwnProperty(action.payload)
+        )[0],
+      };
+    case creators.BY:
+      return {
+        ...state,
+        activeFilter: action.payload,
       };
 
     default:

@@ -38,19 +38,15 @@ function AnimatedRoutes({ setAccess, characters }) {
       console.log('Stat: ', stat);
       console.log('dataARemover: ', dataARemover);
       console.log('Stat[key]: ', stat[dataARemover]);
-      const conclusion = {
-        ...stat,
-        [dataARemover]: { ...stat[dataARemover], [valor]: total },
-      };
-      console.log(' conclusion: ', conclusion);
+      return stat;
     });
 
-    // dispatch({ type: ADD_STATISTICS, payload: result });
+    dispatch({ type: ADD_STATISTICS, payload: result });
     dispatch({
       type: REMOVE_CHARACTER,
       payload: characters.filter((character) => character.id !== id),
     });
-    // console.log('Statistics despues de remover: ' + statistics);
+    console.log('Statistics despues de remover: ' + statistics);
   };
 
   async function login(userData) {
@@ -59,8 +55,9 @@ function AnimatedRoutes({ setAccess, characters }) {
       const URL = 'http://localhost:3001/rickandmorty/login';
       const { data } = await axios.post(URL, { email, password });
       const { access, message } = data;
+      localStorage.setItem('access', access);
       setAccess(access);
-      if (access) {
+      if (access === 'true') {
         setformError(null);
         navigate('/home');
       } else {
